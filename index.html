@@ -5,49 +5,11 @@
 
     <body>
         <h3>Photosession checklist</h3>
-        <div id="items"></div>
+        <div id="checklist"></div>
         
+        <script src="main.js"></script>
         <script>
-        
-        const items = [
-            {
-                id: 1,
-                text: 'Dont dress reflective wear',
-                checked: true,
-            },
-            {
-                id: 2,
-                text: 'Use pale makeup',
-                checked: false,
-            },
-            {
-                id: 3,
-                text: 'Take makeup with you',
-                checked: false,
-            }
-        ];
-
-        renderChecklist(items);
-        
-        function renderChecklist(items) {
-            const containerDiv = document.getElementById('items');
-            for(let i=0; i<items.length; i++) {
-                const itemElement = createItemElement(items[i]);
-                console.log({itemElement})
-                containerDiv.appendChild(itemElement);
-            }
-        }
-        
-        function createItemElement(item) {
-            const div = document.createElement('div');
-            const checked = item.checked ? 'checked' : ''
-            div.innerHTML = `
-                <input type="checkbox" ${checked}>
-                <label>${item.text}</lable>
-            `;
-            return div
-        }
-        
+            renderChecklist('checklist', items);
         </script>  
     </body>
 
