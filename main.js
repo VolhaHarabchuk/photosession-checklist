@@ -1,36 +1,51 @@
 const items = [
     {
-        id: 1,
-        text: 'Dont dress reflective wear',
-        checked: true,
+        text: 'Dont dress reflective clothes',
+        important: true,
     },
     {
-        id: 2,
         text: 'Use pale makeup',
-        checked: false,
     },
     {
-        id: 3,
         text: 'Take makeup with you',
-        checked: false,
-    }
+    },
+    {
+        text: 'Take toys with you',
+        family: true,
+    },
+    {
+        text: 'Try to wear matching colors for the whole family',
+        important: true,
+        family: true,
+    },
 ];
 
-function renderChecklist(elementId, items) {
+function renderChecklist(elementId, items, showFamilyItems=true) {
     const containerDiv = document.getElementById(elementId);
-    for(let i=0; i<items.length; i++) {
-        const itemElement = createItemElement(items[i]);
-        console.log({itemElement})
+    containerDiv.innerHTML = '';
+    for(let i=0; i < items.length; i++) {
+        const item = items[i];
+        if (!showFamilyItems && item.family) {
+            continue;
+        }
+        const itemElement = createItemElement(item);
         containerDiv.appendChild(itemElement);
     }
 }
 
 function createItemElement(item) {
     const div = document.createElement('div');
-    const checked = item.checked ? 'checked' : ''
+    const checked = item.checked ? 'checked' : '';
+    const badge = item.important ? '<span class="badge badge-warning">Important</span>': '';
     div.innerHTML = `
         <input type="checkbox" ${checked}>
-        <label>${item.text}</lable>
+        <label>${item.text}</label>
+        ${badge}
     `;
-    return div
+    return div;
+}
+
+function getSelectorValue(elementId) {
+    const element = document.getElementById(elementId);
+    return element.value;
 }

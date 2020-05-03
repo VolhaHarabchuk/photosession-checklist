@@ -1,18 +1,37 @@
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Volha Harabchuk">
+        <title>Pension calculator</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    </head>
-
+    </head>    
     <body>
-        <h3>Photosession checklist</h3>
-        <div id="checklist"></div>
-        
+        <div class="container">
+            <h3>Photosession checklist</h3>
+            <div class="form-group">
+                <label for="">For:</label>
+                <select name="" id="targetAudience">
+                    <option value="single">Single</option>
+                    <option value="family">Family</option>
+                </select>
+            </div>
+            <div id="checklist"></div>
+        </div>
+
         <script src="main.js"></script>
         <script>
-            renderChecklist('checklist', items);
+            const selector = document.getElementById('targetAudience');
+            selector.addEventListener('change', render);
+            
+            render();
+
+
+            function render () {
+                const showFamilyItems = getSelectorValue('targetAudience') === 'family';
+                renderChecklist('checklist', items, showFamilyItems);
+            }
         </script>  
     </body>
-
-
 </html>
 
