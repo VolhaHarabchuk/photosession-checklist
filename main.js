@@ -1,6 +1,15 @@
 const items = [
     {
         text: 'Dont dress reflective clothes',
+        explanation: 'Reflective clothes may affect photos by reflecting unexpected light',
+        important: true,
+    },
+    {
+        text: 'Sleep well before the session',
+        important: true,
+    },
+    {
+        text: 'Wash you head',
         important: true,
     },
     {
@@ -11,6 +20,7 @@ const items = [
     },
     {
         text: 'Take toys with you',
+        explanation: '',
         family: true,
     },
     {
@@ -18,6 +28,11 @@ const items = [
         important: true,
         family: true,
     },
+    {
+        text: 'Use the same style of dressing for the whole family',
+        family: true,
+    },
+    
 ];
 
 function renderChecklist(elementId, items, showFamilyItems=true) {
