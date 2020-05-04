@@ -9,7 +9,7 @@ const items = [
         important: true,
     },
     {
-        text: 'Wash you head',
+        text: 'Wash your head',
         important: true,
     },
     {
@@ -32,6 +32,13 @@ const items = [
         text: 'Use the same style of dressing for the whole family',
         family: true,
     },
+    {
+        text: 'Choose comfortable closes that make you feel beautiful',
+        important: true
+    },
+    {
+        text: 'Make an appointment at a good salon to get your hair and makeup done there',
+    }
     
 ];
 
